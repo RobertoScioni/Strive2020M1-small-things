@@ -66,8 +66,11 @@ console.log("exercise6")
 /* EXERCISE 7
 Write a function "reverseString" to reverse programmatically a given string (es.: Strive => evirtS).
 */
-
-
+console.log("exercise7")
+const reverseString=(S)=>S.split("").reverse().join("").toString()
+let teststring
+    teststring="Strive"
+console.log("   string "+teststring+"\n   reverse "+reverseString(teststring))
 /* WRITE YOUR CODE HERE */
 
 /* EXERCISE 8
