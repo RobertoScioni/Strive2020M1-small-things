@@ -36,12 +36,20 @@ Write a function "boundary" which accept an integer N and returns true if N is w
   
 /* WRITE YOUR CODE HERE */
 console.log("exercise4")
-    const boundary=(one)=>one===400||(20<=one&&one<=100)?true:false
+    const boundary=(one)=>{
+        if (typeof(one)!=="number"|| !(Number.isInteger(one))) {
+            return "input is not compatible please insert an integer number"
+        }
+        return one===400||(20<=one&&one<=100)?true:false
+    
+    }
     
     console.log("   "+boundary(400))
     console.log("   "+boundary(70))
     console.log("   "+boundary(101))
-    console.log("   "+boundary(15))
+    console.log("   "+boundary(0.1))
+    console.log("   "+boundary("Strive"))
+
 /* EXERCISE 5
 Write a function "strivify" which accepts a string S. Add to S "Strive" in front of a given string, if the given string begins with "Strive" then return the original string.
 */
@@ -66,29 +74,57 @@ console.log("exercise6")
 /* EXERCISE 7
 Write a function "reverseString" to reverse programmatically a given string (es.: Strive => evirtS).
 */
-console.log("exercise7")
-const reverseString=(S)=>S.split("").reverse().join("").toString()
-let teststring
-    teststring="Strive"
-console.log("   string "+teststring+"\n   reverse "+reverseString(teststring))
 /* WRITE YOUR CODE HERE */
-
+    console.log("exercise7")
+    const reverseString=(S)=>S.split("").reverse().join("").toString()
+    let teststring
+        teststring="Strive"
+    console.log("   string "+teststring+"\n   reverse "+reverseString(teststring))
 /* EXERCISE 8
 Write a function "upperFirst" to capitalize the first letter of each word of a given string passed as parameter
 */
 
 /* WRITE YOUR CODE HERE */
+    console.log("exercise8")
+        const upperFirst=(S)=>{
+            let box=S.split(" ")
+            for (let index = 0; index < box.length; index++) {
+                box[index]=box[index][0].toUpperCase()+box[index].slice(1,box[index].length)
+            }
+            return box.join(" ")
+        }
+    teststring="tanto va la gatta al lardo"
+    console.log("   "+teststring)
+    console.log("   "+upperFirst(teststring))
 
 /* EXERCISE 9
 Write a function "cutString" to create a new string without the first and last character of a given string.
 */
 
 /* WRITE YOUR CODE HERE */
+    console.log("exercise9")
 
+        const cutString=(S)=>S.slice(1,S.length-1)
+
+    console.log("   "+cutString(teststring))
 /* EXERCISE 10
 Write a function "giveMeRandom" which accepts a number n and returns an array containing n random numbers between 0 and 10
 */
+console.log("exercise10")
+        const giveMeRandom=(S)=>{
+            
+            if (typeof(S)!=="number"||S===Infinity) {
+                return "input is not compatible please insert a finite number"
+            }
+            
+            let box=[]
+            for (let index = 0; index < S; index++) {
+                box.push(Math.floor((Math.random()*11)))
+            }
+            return(box)
+        }
 
+    console.log("array of 7 elements\n"+giveMeRandom(7))
 /* WRITE YOUR CODE HERE */
 
 /* WHEN YOU ARE FINISHED
