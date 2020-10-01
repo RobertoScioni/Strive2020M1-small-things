@@ -14,7 +14,9 @@ Write a function "area" which receives 2 parameters (l1,l2) and calculate the ar
 /* EXERCISE 2
 Write a function "crazySum" which receives two given integers. If the two values are same, then returns triple their sum.
 */
-
+    let crazySum=(one,two)=>one===two?3*(one+two):""
+    console.log("the crazy sum of 5 and 5 is"+crazySum(5,5))
+    console.log("the crazy sum of 5 and 2 is"+crazySum(5,2))
 /* EXERCISE 3
 Write a function "crazyDiff" that computes the 
 absolute difference between a given number and 19. 
