@@ -9,14 +9,16 @@ ASSIGNMENT RULES
 /* EXERCISE 1
 Write a function "area" which receives 2 parameters (l1,l2) and calculate the area of the rectangle.
 */
+    console.log("exercise1")
     let area=(l1,l2)=>l1*l2
-    console.log(area(5,3))
+    console.log("   Area of a rectangle "+area(5,3))
 /* EXERCISE 2
 Write a function "crazySum" which receives two given integers. If the two values are same, then returns triple their sum.
 */
+    console.log("exercise2")
     let crazySum=(one,two)=>one===two?3*(one+two):""
-    console.log("the crazy sum of 5 and 5 is"+crazySum(5,5))
-    console.log("the crazy sum of 5 and 2 is"+crazySum(5,2))
+    console.log("   the crazy sum of 5 and 5 is"+crazySum(5,5))
+    console.log("   the crazy sum of 5 and 2 is"+crazySum(5,2))
 /* EXERCISE 3
 Write a function "crazyDiff" that computes the 
 absolute difference between a given number and 19. 
@@ -24,7 +26,10 @@ Returns triple their absolute difference if
 the specified
 number is greater than 19.
 */
-
+    console.log("exercise3")
+    let crazyDiff=(one)=> one>19?3*Math.abs(19-one):""
+    console.log("   the crazy diff of 20 is "+crazyDiff(20))
+    console.log("   the crazy sum of 17 is "+crazyDiff(17))
 /* EXERCISE 4
 Write a function "boundary" which accept an integer N and returns true if N is within 20 and 100 (included) or equal to 400.
 */
