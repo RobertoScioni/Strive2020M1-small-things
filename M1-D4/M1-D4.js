@@ -58,10 +58,15 @@ HINT: Module Operator
 */
 
 /* WRITE YOUR CODE HERE */
-
+console.log("exercise6")
+    const check3and7=(posInt)=>posInt%3===0||posInt%7===0?"multiple of 3 or 7":"NOT multiple of 3 or 7"
+    console.log("   "+check3and7(28))
+    console.log("   "+check3and7(9))
+    console.log("   "+check3and7(100))
 /* EXERCISE 7
 Write a function "reverseString" to reverse programmatically a given string (es.: Strive => evirtS).
 */
+
 
 /* WRITE YOUR CODE HERE */
 
