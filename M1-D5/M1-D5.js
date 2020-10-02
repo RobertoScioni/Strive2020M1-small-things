@@ -45,39 +45,50 @@
 /* Ex.1
     Write the function Dice that randomize an integer number between 1 and 6
 */
-  dice=()=>Math.floor(Math.random()*6)+1
+  const dice=()=>Math.floor(Math.random()*6)+1
+  console.log("Ex.1 i rolled "+dice())
 /* Ex.2 
     Write the function WhoIsBigger that receives 2 numbers and returns the bigger of the 2
 */
-  WhoIsBigger=(one,two)=>one>two?one:one<two?two:false
+  const WhoIsBigger=(one,two)=>one>two?one:one<two?two:false
+  const r1=Math.round(Math.random()*10)
+  const r2=Math.floor(Math.random()*10)
+  console.log("Ex.2 one="+r1+"two="+r2+"result="+WhoIsBigger(r1,r2))
 /* Ex.3
     Write the function SplitMe that receives a String and returns an array with every word in that string
     Ex. SplitMe("I love coding") => returns [ "I","Love","Coding"]
 */
-  SplitMe=(S)=>S.split(" ")
+  const SplitMe=(S)=>S.split(" ")
+
+  let S="Restricted to individuals and organizations that can verify participation in architecture industry."
+  console.log("Ex.3\n   String= "+S+"\n   Array "+SplitMe(S))
 /* Ex.4
     Write the function DeleteOne that receives a string and a boolean. If the boolean is true, should return the string without the first letter, otherwise should remove the last one
 */
-  DeleteOne=(command,str)=>command?str.slice(1,str.length):str.slice(0,str.length-1)
+  const DeleteOne=(command,str)=>command?str.toString().slice(1,str.length):str.slice(0,str.length-1)
 
+  console.log("Ex.4\n   String= "+S+"\n   Altered with true "+DeleteOne(true,S))
+  console.log("   Altered with false "+DeleteOne(false,S))
 /* Ex.5
    Write the function OnlyLetters that receives a string, removes all the numbers and returns it.
    Ex.: OnlyLetters("I love 123 whatever")  => returns "I love whatever"
 */
-  OnlyLetters=(S)=>{
+  const OnlyLetters=(S)=>{
     const box=S.split("")
     for (let i = 0; i < box.length;) {Number(box[i])?box.splice(i,1):i++}
     return box.join(" ")
   }
+  S="I love 123 whatever"
+  console.log("Ex.5 String ="+S+"\n   result="+OnlyLetters(S))
 /* Ex.6 
    Write the function IsThisAnEmail that receives a string and returns true if the string is a valid email.
 */
   IsThisAnEmail=(S)=>S.indexOf("@")<=0?false:S.lastIndexOf(".")>S.indexOf("@")?true:false
-  
-  console.log(IsThisAnEmail("pctech.robertoscioni@gmail.com"))
-  console.log(IsThisAnEmail("vattelapesca@gmail.com"))
-  console.log(IsThisAnEmail("pctech.robertoscionigmail.com"))
-  console.log(IsThisAnEmail("pctech.robertoscioni@gmailcom"))
+  console.log("Ex.6")
+  console.log("   pctech.robertoscioni@gmail.com is a valid mail address? "+IsThisAnEmail("pctech.robertoscioni@gmail.com"))
+  console.log("   vattelapesca@gmail.com is a valid mail address? "+IsThisAnEmail("vattelapesca@gmail.com"))
+  console.log("   pctech.robertoscionigmail.com is a valid mail address? "+IsThisAnEmail("pctech.robertoscionigmail.com"))
+  console.log("   pctech.robertoscioni@gmailcom is a valid mail address? "+IsThisAnEmail("pctech.robertoscioni@gmailcom"))
 /* Ex.7
    Write the function WhatDayIsIt that should return the day of the week
 */
@@ -85,7 +96,7 @@ WhatDayIsIt=()=>{
   const week = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
   return week[new Date().getDay()-1]
 }
-console.log(WhatDayIsIt())
+console.log("Ex.7 today is "+WhatDayIsIt())
 /* Ex.8
     Write the function RollTheDices that receives a numeric input and returns an object that contains both the sum of the value of the dices and the dices itself
     This function should use the Dice function defined in Ex1
@@ -102,36 +113,38 @@ console.log(WhatDayIsIt())
         }
         return out
     }
+
+    console.log("Ex.8")
+    console.log(RollTheDices(Math.floor(Math.random()*10)+1))
 /* Ex.9
    Write the function HowManyDays that receives a Date and return the number of days that has passed since that day.
 */
-  HowManyDays=(D)=>{
+  const HowManyDays=(D)=>{
     const today=new Date()
     const aDayInMs=86400000
     return Math.floor((today-D)/aDayInMs)
   }
-  const dayTest=new Date(2020,8,30)
-  console.log(dayTest.toLocaleDateString())
-  console.log(HowManyDays(dayTest))
+  const dayTest=new Date(2020,8,Math.ceil(Math.random()*30))
+  console.log("Ex.9   today is "+new Date().toLocaleDateString()+"\n       Target day is "+dayTest.toLocaleDateString())
+  console.log("\n       "+HowManyDays(dayTest)+" days have passed")
 /* Ex.10
    Write the function IsTodayMyBDay that returns true if it's your birthday, false otherwise
 */
-  IsTodayMyBDay=(BDay)=>new Date().getMonth()===BDay.getMonth()&&new Date().getDate()===BDay.getDate()?true:false
-  const Bday=new Date(1985,9,2)
-  console.log(IsTodayMyBDay(Bday))
+  const IsTodayMyBDay=(BDay)=>new Date().getMonth()===BDay.getMonth()&&new Date().getDate()===BDay.getDate()?true:false
+  const Bday=new Date(1985,18,2)
+  console.log("Ex.10 is it my birthday? "+IsTodayMyBDay(Bday))
 // JS Arrays // Objs
 // NOTE: movies array is defined at the end of the file
 
-/* Ex.11   to revisit
+/* Ex.11
    Write the function DeleteProp that receives an object and a string, and returns the object after deleting the property with that given name
 */
   DeleteProp=(Obj,Str)=>{
-    delete `Obj.+${Str}`
-    console.log(Obj)
+    delete Obj[Str]
     return Obj
   }
 
-  console.log(DeleteProp(RollTheDices(3),"total"))
+  console.log("Ex 11 i'm deleting the total of the rolls from Ex.8"+DeleteProp(RollTheDices(3),"total"))
 
 /* Ex.12 
     Write the function OlderMovie that finds the older movie in the array
@@ -211,10 +224,21 @@ GetMovieById=(arr,ID)=>{
 /* Ex.19
     Write the function SearchAndDivide that receives a string and returns an object with an array "match" with all the movies that contains the title and another array "nonMatch" with the other movies
 */
-
+  SearchAndDivide=(arr,key)=>{
+    const out={match:[],nonMatch:[]}
+    for (let i = 0; i < arr.length; i++) {
+      arr[i].Title.toLowerCase().search(key.toLowerCase())!==-1?out.match.push(arr[i]):out.nonMatch.push(arr[i])
+    }
+    return out
+  }
 /* Ex.20
    Write the function DeleteX that receives a number and returns an array without the element in that position
 */
+  DeleteX=(arr,index)=>{
+    if (index>arr.length){return false}
+    arr.splice(index,1)
+    return arr
+  }
 
 // JS Advanced
 
@@ -226,6 +250,13 @@ GetMovieById=(arr,ID)=>{
   **
   ***
 */
+  HalfTree=(h)=>{
+    let string="*"
+    for (let i = 0; i < h; i++) {
+      console.log(string)
+      string+="*"
+    }
+  }
 
 /* Ex.22 
   Create a function Tree that receives the height and creates an "*" tree with that height
@@ -235,11 +266,33 @@ GetMovieById=(arr,ID)=>{
    *** 
   *****
 */
+  Tree=(h)=>{
+    let base=h+h-1
+    let buffer=[]
+
+    for (let i = 1; i <= h; i++) {
+      buffer.push("")
+      
+      for (let y = 0; y < i+i-1; y++) {
+        buffer[i-1]+="*"
+      }
+     // console.log(base)
+     // console.log(buffer[i-1].length)
+     // console.log((base-buffer[i-1].length)/2+buffer[i-1].length)
+      buffer[i-1]=buffer[i-1].toString().padStart((base-buffer[i-1].length)/2+buffer[i-1].length)
+      console.log(buffer[i-1])
+    }
+  }
 
 /* Ex.23
   Create a function IsItPrime that receives a number and return true if the number is a prime number
 */
-
+const IsItPrime=(X)=>{
+  for (let i = 2; i < X; i++) {
+    if (X%i===0) {return false}
+  }
+  return true;
+}
 /* Movies array is an example array, used for the exs. Don't change it :)  */
 const movies = [
   {
@@ -356,4 +409,27 @@ const movies = [
   },
 ];
 
+console.log("Ex 12 the older movie")
+console.log(OlderMovie(movies))
+console.log("Ex 13 movies in the array "+CountMovies(movies))
+console.log("Ex.14 only titles")
+console.log(OnlyTitles(movies))
+console.log("\nEx15 only this millennium")
+console.log(OnlyThisMillennium(movies))
+const ID="tt0077869"
+console.log("\nEx.16 movie withy id="+ID)
+console.log(GetMovieById(movies,ID))
+console.log("ex.17 ")
+SumYears(movies)
+console.log("ex.18 ")
 console.log(SearchMovie(movies,"lord"))
+console.log("ex.19 ")
+console.log(SearchAndDivide(movies,"lord"))
+console.log("ex.20 ")
+console.log(DeleteX(movies,5))
+console.log("ex.21 ")
+HalfTree(Math.round(Math.random()*10)+3)
+console.log("ex.22 ")
+Tree(Math.round(Math.random()*10)+3)
+const testPrime=Math.floor(Math.random()*1000)
+console.log("ex.23 is test primary? "+IsItPrime(testPrime))
